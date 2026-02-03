@@ -1,0 +1,44 @@
+'use client';
+import { useEffect, useState } from 'react';
+import styles from './CookieBanner.module.scss'
+
+export const CookieBanner = () => {
+    const [isVisible, setisVisible] = useState<boolean>(false);
+
+    useEffect(() => {
+        const cookieConsent = localStorage.getItem('cookieConsent');
+        if (!cookieConsent) {
+            setisVisible(true);
+        }
+    }, []);
+
+    const handleDismiss = () => {
+        localStorage.setItem('cookieConsent', 'dismissed');
+        setisVisible(false);
+    }
+
+    if (!isVisible) {
+        return null;
+    }
+
+    return (
+        <div className={styles.CookieBanner}>
+            <div className={styles.textContainer}>
+                <p className={styles.title}>Welcome to x.com</p>
+                <p className={styles.text}>
+                    We are letting you know that we are changing our URL, but your privacy
+                    and data protection settings remain the same. For more details, see
+                    our Privacy Policy:{" "}
+                    <a href="https://x.com/en/privacy" target="_blank" rel="noopener noreferrer">https://x.com/en/privacy </a>
+                </p>
+            </div>
+            <div className={styles.actions}>
+                <button onClick={handleDismiss} className={styles.closeButton}>
+                <span>&times;</span>
+                </button>
+            </div>
+        </div>
+    )
+}
+
+export default CookieBanner;

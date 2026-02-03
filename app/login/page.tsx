@@ -3,11 +3,11 @@
 import { useState } from "react";
 import styles from "./Login.module.scss"
 import { PiXLogoBold } from "react-icons/pi";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '@/lib/firebaseConfig';
 import Link from "next/link";
-import Toast from "../components/Toast";
+import Toast from "../../components/Toast";
 
 
 export const LoginPage = () => {
