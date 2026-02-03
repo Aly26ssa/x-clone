@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { EmailAuthProvider } from "firebase/auth/web-extension";
+import { AuthProvider } from "@/context/AuthContext";
+import CookieBanner from "@/components/CookieBanner/CookieBanner";
 
 const inter = Inter({ subsets: ['latin']});
 
@@ -20,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           {children}
+          <CookieBanner />
         </AuthProvider>
         </body>
     </html>
