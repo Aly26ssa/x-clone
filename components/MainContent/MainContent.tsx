@@ -5,6 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { query, collection, orderBy, getDocs, getDoc, doc, addDoc } from 'firebase/firestore';
 import { db, auth } from '@/lib/firebaseConfig';
 import { FaImage, FaSmile, FaPoll, FaCalendarAlt, FaMapMarkerAlt, FaBold, FaItalic, FaUserCircle } from 'react-icons/fa';
+import Tweet from '../Tweet';
 
 const MainContent = () => {
     const [tweets, setTweets] = useState<any[]>([]);
